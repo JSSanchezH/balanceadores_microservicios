@@ -58,7 +58,7 @@ jobs:
 
           echo "Generando archivo .env remotamente"
           echo "$ENV_CONTENT" | ssh -p $SSH_PORT -i ~/.ssh/server_key -o StrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} "cat > ${PROJECT_PATH}/.env"
-          echo "$ENV_CONTENT" | ssh -p $SSH_PORT -i ~/.ssh/server_key -o StrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} "cat > ${PROJECT_PATH}/frontend/.env"
+          echo "$ENV_CONTENT" | ssh -p $SSH_PORT -i ~/.ssh/server_key -o StrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} "cat > ${PROJECT_PATH}/fastapi/.env"
 
           echo "Ejecutando make run"
           ssh -p $SSH_PORT -i ~/.ssh/server_key -o StrictHostKeyChecking=no ${USER_NAME}@${HOST_NAME} "cd ${PROJECT_PATH} && make run"
