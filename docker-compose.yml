@@ -69,15 +69,15 @@ services:
     depends_on:
       - mysql
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.api.rule=PathPrefix(`/api`)"
-      - "traefik.http.services.api.loadbalancer.server.port=8000"
-      - "traefik.http.routers.api.entrypoints=web"
-      - "traefik.http.services.api.loadbalancer.sticky=true"
-      - "traefik.http.middlewares.api-strip.stripprefix.prefixes=/api"
-      - "traefik.http.middlewares.api-strip.stripprefix.forceSlash=false"
-      - "traefik.http.routers.api.middlewares=api-strip@docker"
-      - "traefik.http.middlewares.api-headers.headers.customrequestheaders.X-Forwarded-Prefix=/api"
+        - "traefik.enable=true"
+        - "traefik.http.routers.api.rule=PathPrefix(`/api`)"
+        - "traefik.http.services.api.loadbalancer.server.port=8000"
+        - "traefik.http.routers.api.entrypoints=web"
+        - "traefik.http.services.api.loadbalancer.sticky=true"
+        - "traefik.http.middlewares.api-strip.stripprefix.prefixes=/api"
+        - "traefik.http.middlewares.api-strip.stripprefix.forceSlash=false"
+        - "traefik.http.routers.api.middlewares=api-strip@docker"
+        - "traefik.http.middlewares.api-headers.headers.customrequestheaders.X-Forwarded-Prefix=/api"
 
 networks:
   eam-elecitva-balancer:
